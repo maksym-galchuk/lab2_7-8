@@ -14,13 +14,27 @@ public class Expression {
         this.c = c;
     }
     
+    public double A {
+        get => a;
+        set => a = value;
+    }
+    
+    public double D {
+        get => d;
+        set => d = value;
+    }
+    
+    public double C {
+        get => c;
+        set => c = value;
+    }
+    
     public double Calculate() {
         double ln = Math.Log(1 - a / 4);
         if (ln == 0) throw new Exception($"Division by zero exeption: Ln(1 - {a} / 4) = 0");
         if ((1 - a / 4) <= 0) throw new Exception($"Invalid argument exeption: Ln(1 - {a} / 4) <= 0");
         
         result = (2 * c - d / 23) / ln;
-        // return result with 2 decimal places
         return Math.Round(result, 2);
     }
     
